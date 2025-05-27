@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hd.mapper.TargetMapper">
+
+    <resultMap id="targetResultMap" type="Target">
+        <id property="id" column="id"/>
+        <result property="userID" column="userID"/>
+        <result property="name" column="name"/>
+        <result property="depict" column="depict"/>
+        <result property="endDate" column="endDate"/>
+        <result property="dotimes" column="dotimes"/>
+        <result property="latestdo" column="latestdo"/>
+    </resultMap>
+
+    <!--    插入一条未来目标target-->
+    <insert id="addTarget" parameterType="Target">
+        insert into target(userID,name,depict,endDate,dotimes,latestdo) values (#{userID}, #{name},#{depict},#{endDate},#{dotimes},#{latestdo})
+    </insert>
+
+    <!--    返回刚刚添加的target-->
+    <select id="queryLastInsert"  resultMap="targetResultMap">
+        select * from target where id = LAST_INSERT_ID();
+    </select>
+
+    <!--    查询所有的target-->
+    <select id="queryAllTarget" parameterType="int" resultMap="targetResultMap">
+        select * from target where userID =#{userID}
+    </select>
+
+    <!--    删除target-->
+    <delete id="deleteTarget" parameterType="Target">
+        delete  from target where userID=#{userID} and name=#{name} and endDate=#{endDate}
+    </delete>
+
+</mapper>
