@@ -21,8 +21,8 @@ public class TargetServiceImpl implements TargetService {
     }
 
     @Override
-    public List<Target> getTargetByUserid(int userid) {
-        List<Target> targetList = targetMapper.getAllTargetByUserid(userid);
+    public List<Target> getTargetByUserid(int userID) {
+        List<Target> targetList = targetMapper.getAllTargetByUserid(userID);
         return targetList;
     }
 }

@@ -12,12 +12,14 @@
         <result property="latestdo" column="latestdo"/>
     </resultMap>
 
+
     <select id="getAllTargetByUserid" parameterType="int" resultMap="targetResultMap">
-        select * from target where userid = #{userid}
+        select * from target where userid = #{userID}
     </select>
 
+    <!--    可以尝试将userID写为useid看看会报什么错-->
     <insert id="addTarget" parameterType="com.xxc.todo.entity.Target" useGeneratedKeys="true" keyProperty="id" >
-        insert into target(userid,name,depict,enddate) values (#{userid},#{name},#{depict},#{enddate})
+        insert into target(userid,name,depict,enddate) values (#{userID},#{name},#{depict},#{endDate})
     </insert>
 
 
