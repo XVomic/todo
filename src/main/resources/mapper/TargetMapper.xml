@@ -4,22 +4,21 @@
 
     <resultMap id="targetResultMap" type="com.xxc.todo.entity.Target">
         <id property="id" column="id"/>
-        <result property="userID" column="userid"/>
+        <result property="userId" column="userid"/>
         <result property="name" column="name"/>
         <result property="depict" column="depict"/>
         <result property="endDate" column="enddate"/>
-        <result property="dotimes" column="dotimes"/>
-        <result property="latestdo" column="latestdo"/>
+        <result property="doTimes" column="dotimes"/>
+        <result property="latestDo" column="latestdo"/>
     </resultMap>
 
-
     <select id="getAllTargetByUserid" parameterType="int" resultMap="targetResultMap">
-        select * from target where userid = #{userID}
+        select * from target where userid = #{userId}
     </select>
 
     <!--    可以尝试将userID写为useid看看会报什么错-->
     <insert id="addTarget" parameterType="com.xxc.todo.entity.Target" useGeneratedKeys="true" keyProperty="id" >
-        insert into target(userid,name,depict,enddate) values (#{userID},#{name},#{depict},#{endDate})
+        insert into target(userid,name,depict,enddate) values (#{userId},#{name},#{depict},#{endDate})
     </insert>
 
 

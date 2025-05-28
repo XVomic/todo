@@ -7,5 +7,5 @@ import java.util.List;
 public interface TargetService {
     public int addTarget(Target target);
 
-    public List<Target> getTargetByUserid(int userID);
+    public List<Target> getTargetByUserid(int userId);
 }

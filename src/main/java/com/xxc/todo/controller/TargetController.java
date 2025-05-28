@@ -22,7 +22,7 @@ public class TargetController {
     }
 
     @GetMapping("/querytarget/{userid}")
-    public List<Target> queryTarget(@PathVariable int userID) {
-        return targetService.getTargetByUserid(userID);
+    public List<Target> queryTarget(@PathVariable(name = "userid") int userId) {
+        return targetService.getTargetByUserid(userId);
     }
 }

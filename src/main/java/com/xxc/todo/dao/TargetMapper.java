@@ -8,7 +8,9 @@ import java.util.List;
 
 @Mapper
 public interface TargetMapper {
-     List<Target> getAllTargetByUserid(int userid);
 
      int addTarget(Target target);
+
+     List<Target> getAllTargetByUserid(int userId);
+
 }

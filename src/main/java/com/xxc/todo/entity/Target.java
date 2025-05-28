@@ -4,24 +4,27 @@ import java.util.Date;
 
 public class Target {
     private Integer id;     //当前目标id
-    private Integer userID;     //当前用户id
+    private Integer userId;     //当前用户id
     private String name;    //目标name
     private String depict;      //目标描述
     private Date endDate; //目标结束日期
-    private Integer dotimes;    //打卡次数
-    private Date latestdo;  //上次打卡时间
+    private Integer doTimes;    //打卡次数
+    private Date latestDo;  //上次打卡时间
 
-    public Target(Integer id, Integer userID, String name, String depict, Date endDate, Integer dotimes, Date latestdo) {
+    public Target(Integer id, Integer userId, String name, String depict, Date endDate, Integer doTimes, Date latestDo) {
         this.id = id;
-        this.userID = userID;
+        this.userId = userId;
         this.name = name;
         this.depict = depict;
         this.endDate = endDate;
-        this.dotimes = dotimes;
-        this.latestdo = latestdo;
+        this.doTimes = doTimes;
+        this.latestDo = latestDo;
     }
 
-    public Target() {}
+
+    public boolean isValid() {
+        return userId != null && name != null && endDate != null;
+    }
 
     public Integer getId() {
         return id;
@@ -31,12 +34,12 @@ public class Target {
         this.id = id;
     }
 
-    public Integer getUserID() {
-        return userID;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserID(Integer userID) {
-        this.userID = userID;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -63,23 +66,19 @@ public class Target {
         this.endDate = endDate;
     }
 
-    public Integer getDotimes() {
-        return dotimes;
+    public Integer getDoTimes() {
+        return doTimes;
     }
 
-    public void setDotimes(Integer dotimes) {
-        this.dotimes = dotimes;
+    public void setDoTimes(Integer doTimes) {
+        this.doTimes = doTimes;
     }
 
-    public Date getLatestdo() {
-        return latestdo;
+    public Date getLatestDo() {
+        return latestDo;
     }
 
-    public void setLatestdo(Date latestdo) {
-        this.latestdo = latestdo;
-    }
-
-    public boolean isValid() {
-        return userID != null && name != null && endDate != null;
+    public void setLatestDo(Date latestDo) {
+        this.latestDo = latestDo;
     }
 }
